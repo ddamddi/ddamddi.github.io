@@ -2,28 +2,28 @@
 #  User configuration
 # -----------------------------------------------------------------------------
 
-title:               어쩐지 오늘은
+title:               ddamddi's
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
-url:                 https://zzsza.github.io
+url:                 https://ddamddi.github.io
 
 # Set to '' when hosting a blog on GitHub Pages, ie on `//<username>.github.io`
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             ""
 
 # A very short description of your page
-tagline:             Machine Learning Engineer
+tagline:             Archives
 
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  메모가 습관인 데이터쟁이입니다
+  
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              seongyun byeon
-  email:             snugyun01@gmail.com
+  name:              Gyeong-Hyeon Kim
+  email:             leonardkkh@gmail.com
 
 # Fallback image and color
 image:               /assets/img/nap.jpg
@@ -44,13 +44,13 @@ google_fonts:        Lato
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:    UA-110573232-1
+# google_analytics:    UA-110573232-1
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    zzsza
+disqus_shortname:    ddamddi
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. by Seongyun Byeon'
+copyright:           '&copy; 2019. by Gyeong-Hyeon Kim'
 
 # Format of the permalinks
 permalink:           pretty

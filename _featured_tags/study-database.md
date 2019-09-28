@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Book
-slug: book
-category: etc
+title: Database
+slug: database
+category: study
 menu: false
 order: 2
 ---
