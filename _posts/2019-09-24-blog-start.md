@@ -8,3 +8,5 @@ tags: diary
 comments: true
 ---
 
+2019.09.24~ Blog 시작 !!
+ 
