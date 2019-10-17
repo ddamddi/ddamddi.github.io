@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Design Pattern] 템플릿 메소드 패턴(Template Method Pattern)이란 ??"
+title: "[Design Pattern] 템플릿 메소드 패턴(Template Method Pattern)"
 description: ""
 modified: 2019-09-24
 categories: study

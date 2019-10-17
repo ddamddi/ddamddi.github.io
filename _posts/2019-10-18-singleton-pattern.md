@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[Design Pattern] 싱글턴 패턴(Singleton Pattern)"
-description: "싱글턴 패턴(Singleton Pattern)이란??"
+description: ""
 modified: 2019-10-18
 categories: study
 tags: design_pattern
@@ -15,7 +15,7 @@ comments: true
 싱글턴 패턴은 하나의 인스턴스를 유지하기 위해 몇 가지 제약을 걸어둬야한다.
 ```java
 public class Singleton {
-	private static Sigleton uniqueInstance;g
+	private static Sigleton uniqueInstance;
 	private Singleton() {}
 	public static Singleton getInstance() {
 		if (uniqueInstance == null) {
