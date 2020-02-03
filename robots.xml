@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+User-agent: *
+Disallow: /diary/
 
-Sitemap: http://isme2n.github.io/sitemap.xml
+Sitemap: http://ddamddi.github.io/sitemap.xml
