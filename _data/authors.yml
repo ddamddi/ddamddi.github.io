@@ -51,14 +51,14 @@ ddamddi:
     # npm:             <username>
     # hackernews:      <username>
     # trello:          <firstnamelastname>
-    # linkedin:        <username>
+    linkedin:        gyeong-hyeon-kim-3aa89817a/
     # xing:            <firstname_lastname_counter>
     # blogger:         <number>
     # delicious:       <username>
     # stumbleupon:     <username>
     # paypal:          <username>
     email:           mailto:leonardkkh@gmail.com
-    # rss:             https://ddamddi.github.io/feed.xml
+    rss:             https://ddamddi.github.io/feed.xml
 
 # Another author
 mdo:
