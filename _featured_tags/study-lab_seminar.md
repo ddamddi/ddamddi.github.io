@@ -1,8 +1,8 @@
 ---
 layout: tag-blog
-title: Paper
-slug: paper
+title: Lab Seminar
+slug: lab_seminar
 category: study
 menu: false
-order: 2
+order: 3
 ---
