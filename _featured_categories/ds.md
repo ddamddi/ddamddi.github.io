@@ -1,10 +1,10 @@
 ---
 layout: list
-title: Development
-slug: development
+title: Data Science
+slug: ds
 menu: true
 submenu: true
 order: 3
 description: >
-  Development
+  공부기록 때려넣기
 ---
