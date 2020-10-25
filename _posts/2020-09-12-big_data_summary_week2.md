@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "[Week2] Big Data 정리"
+title: "[Week2] Big Data 정리 #1"
 description: ""
-modified: 2020-09-19
+modified: 2020-09-12
 categories: study
 tags: big_data
 comments: true
@@ -24,18 +24,25 @@ comments: true
 ## Knowledge
   - 주제에 해당하는 정보를 다루는 경험에 근거한 이해.  
 
+<br><br>
+
 # Characteristic of Big Data(3V)
 <img src='https://www.dropbox.com/s/024d4nmzpxrz8u4/3v_bd.PNG?dl=1'>  
 
-- Volume(크기)
+- *Volume* (크기)
   - Very Large Data
-  - TBs to PBs
-- Velocity(속도)
+  - TeraBytes to PetaBytes
+- *Velocity* (속도)
   - Batch, Real-time, Streaming
-- Variety(다양성)  
-  - Structed Data
-  - Unstructed Data
-  - Semi-Structed Data
+- *Variety* (다양성)  
+  - Structured Data
+    - High degree of organization
+    - Relational DB & SQL
+  - Unstructured Data
+    - NoSQL
+  - Semi-Structured Data
+
+<br><br>
 
 # Data Platform
 <img src='https://www.dropbox.com/s/qc92snzrv8hdo30/data_platform.PNG?dl=1'>  
