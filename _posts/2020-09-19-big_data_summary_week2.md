@@ -36,7 +36,10 @@ comments: true
   - Batch, Real-time, Streaming
 - *Variety* (다양성)  
   - Structured Data
+    - High degree of organization
+    - Relational DB & SQL
   - Unstructured Data
+    - NoSQL
   - Semi-Structured Data
 
 <br><br>
