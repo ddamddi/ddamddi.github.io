@@ -10,8 +10,6 @@ comments: true
 
 > 본 포스트는 2020-2학기 Linux System and its Applications 9주차 수업을 정리한 글입니다.
 
-# Process and Thread
-
 ## Process in Linux
 - 프로세스는 *'Running Program'(실행중인 프로그램)*
 - 프로그램을 실행시키면 메인메모리에 올라오고 새로운 프로세스가 생성/시작
