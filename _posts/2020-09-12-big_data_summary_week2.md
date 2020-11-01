@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "[Week2] Big Data 정리 #1"
+title: "Big Data 정리 #1"
 description: ""
 modified: 2020-09-12
 categories: study
@@ -27,7 +27,7 @@ comments: true
 <br><br>
 
 # Characteristic of Big Data(3V)
-<img src='https://www.dropbox.com/s/024d4nmzpxrz8u4/3v_bd.PNG?dl=1'>  
+![/assets/img/3v_bd.png](/assets/img/3v_bd.png)  
 
 - *Volume* (크기)
   - Very Large Data
@@ -45,4 +45,4 @@ comments: true
 <br><br>
 
 # Data Platform
-<img src='https://www.dropbox.com/s/qc92snzrv8hdo30/data_platform.PNG?dl=1'>  
+![/assets/img/data_platform.png](/assets/img/data_platform.png)  
