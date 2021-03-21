@@ -36,42 +36,39 @@ Object Detection/Instance Segmentaiton와 같은 Computer Vision Task에서 Back
 
 논문에서 제안하는 Backbone은 고정된 Stem network와 NAS를 통해 학습되는 Scale-Permuted network로 구성됩니다.
 
-[FPN](https://arxiv.org/abs/1612.03144)처럼 여러 스케일의 Mulit-Scale Fetarures를 Output으로 받기 위해 5개의 Output block을 미리 지정합니다. 5개의 Output Scale($L_3$, $L_4$, $L_5$, $L_6$, $L_7$)을 미리 정하고 그 블록들은 Backbone의 head 부분에 위치합니다.(위 그림에서 빨간 테두리의 block)  
+[FPN](https://arxiv.org/abs/1612.03144)처럼 여러 스케일의 Mulit-Scale Fetarures를 Output으로 받기 위해 5개의 Output block을 미리 지정합니다. 5개의 Output Scale($$L_3$$, $$L_4$$, $$L_5$$, $$L_6$$, $$L_7$$)을 미리 정하고 그 블록들은 Backbone의 head 부분에 위치합니다.(위 그림에서 빨간 테두리의 block)  
 
-$$
-L_n : \frac{1}{2^n} * input resolution
-$$  
+$$L_n : \frac{1}{2^n} \times input \; resolution$$      
   
-  
-ResNet50은 $L_6$과 $L_7$ Scale Block이 없기 때문에 하나의 $L_5$ 블록을 $L_6$과 $L_7$ 블록 각각 한 개로 바꿔줍니다.
+ResNet50은 $$L_6$$과 $$L_7$$ Scale Block이 없기 때문에 하나의 $$L_5$$ 블록을 $$L_6$$과 $$L_7$$ 블록 각각 한 개로 바꿔줍니다.
 
-1-stage Dectector 중 Backbone으로 ResNet50을 사용하는 *RetinaNet(a)*을 Baseline으로 하고 강화학습기반 NAS(Neural Architecture Search)로 (1)Scale Permutation, (2)Cross-Scale Connections을 찾고 추가적인 (3) Block Adjustment를 통해 Scale-Permuted Model인 *SpineNet*을 찾습니다.  
+1-stage Dectector 중 Backbone으로 ResNet50을 사용하는 *RetinaNet(a)*을 Baseline으로 하고 강화학습기반 NAS(Neural Architecture Search)로 (1) Scale Permutation, (2) Cross-Scale Connections을 찾고 추가적인 (3) Block Adjustment를 통해 Scale-Permuted Model인 *SpineNet*을 찾습니다.  
 
 
 ## Search Space
 Search Space는 아래와 같은 3가지로 구성됩니다.
 
 1. **Scale Permutations**  
-앞의 Block으로부터만 연결될 수 있으므로 어떻게 Scale Permutation이 되는지는 중요합니다. 고정된 5개의 Output Block은 Head에 위치되어야 하기 때문에 5!의 Search Space Size와 나머지 블록들의 Permutation인 $(N-5)!$의 Search Space Size로 총 $5!(N-5)!$의 Search Space를 가지게 됩니다.
+앞의 Block으로부터만 연결될 수 있으므로 어떻게 Scale Permutation이 되는지는 중요합니다. 고정된 5개의 Output Block은 Head에 위치되어야 하기 때문에 $$5!$$의 Search Space Size와 나머지 블록들의 Permutation인 $$(N-5)!$$의 Search Space 크기는 총 $$5!(N-5)!$$를 가지게 됩니다.
 
 2. **Cross-Scale Connections**  
-앞 쪽의 2개의 블록으로부터 Input을 받고, 다른 Scale의 Feature를 받을 수 있으므로 Resampling과정을 거치게 됩니다. Resampling 과정은 아래 Resampling in Cross-Scale Connection에서 자세히 설명합니다. 여기서의 Search Space Size는 $\Pi_{n=i}^{N+m-1}C_2^i$가 됩니다.
+앞 쪽의 2개의 블록으로부터 Input을 받고, 다른 Scale의 Feature를 받을 수 있으므로 Resampling 과정을 거치게 됩니다. Resampling 과정은 아래 Resampling in Cross-Scale Connection에서 자세히 설명합니다. Search Space 크기는 $$\Pi_{i=m}^{N+m-1}C_2^i$$가 됩니다. 여기서 $$m$$은 stem network에서 선택 가능한 Block의 갯수입니다. 
 
 3. **Block Adjustments**  
-Output Block을 제외한 Intermediate Block은 Scale level을 변경할 수 있고 Output Block을 포함한 모든 Block은 Block Type을 변경할 수 있습니다. Scale Level은 {-1, 0, 1, 2}로 줄이거나 유지하거나 늘리는 방법으로 변경 가능하고 Block Type은 {*Bottleneck, Residual*}로 변경 가능합니다. Search Space Size는 $4^(N-5)2^N$가 됩니다.
+Output Block을 제외한 Intermediate Block은 Scale level을 변경할 수 있고 Output Block을 포함한 모든 Block은 Block Type을 변경할 수 있습니다. Scale Level은 {-1, 0, 1, 2}로 줄이거나 유지하거나 늘리는 방법으로 변경 가능하고 Block Type은 {*Bottleneck, Residual*}로 변경 가능합니다. Search Space 크기는 $$4^{N-5}2^N$$가 됩니다.
 
 ## Resampling in Cross-Scale Connection
 ![spinenet-resampling-ops](/assets/img/paper_review/spinenet-resampling-ops.png)  
 
-ResNet50과 Computation Cost를 같게 유지하기 위해 Scaling Factor \alpha(0.5, default)를 사용하여 1x1 Conv의 채널 수를 Scaling 합니다.
-Up-sampling은 NN(Nearest-Neighbor) Interpolation을 통해 Feature Map Scale을 늘려주며, Down-sampling 과정은 stride 2의 3x3Conv와 Maxpooling을 사용하여 Feature map을 줄여줍니다. 이후 Element-wise Addition을 통해서 두 Feature map을 더해줍니다.
+ResNet50과 Computation Cost를 같게 유지하기 위해 Scaling Factor $$\alpha$$(0.5, default)를 사용하여 1x1 Conv의 채널 수를 Scaling합니다.
+Up-sampling은 NN(Nearest-Neighbor) Interpolation을 통해 Feature Map Scale을 늘려주며, Down-sampling 과정은 stride 2의 3x3 Conv와 Maxpooling을 사용하여 Feature map을 줄여줍니다. 이후 Element-wise Addition을 통해서 두 Feature map을 더해줍니다.
 
 
 ## NAS Detail
 ![spinenet-nas-detail](/assets/img/paper_review/spinenet-nas-detail.png)  
 [NAS-RL](https://arxiv.org/abs/1611.01578)의 방식을 이용해 RNN based Controller로 Architecture를 얻습니다. 위에서 정의한 Search Space도 사이즈와 계산량이 매우 크기 때문에 Feature dimension과 Scaling Factor를 줄이고 Intermediate block의 Parent를 최근 5개로 줄이는 등 더 좁은 Search Space 내에서 Proxy SpineNet을 찾습니다.   
   
-512x512 resolution으로 5 epoch를 Train하고 Validation AP를 Reward로 하여 학습을 진행하고, 이렇게 하여 찾은 모델이 SpineNet-49이고 더 큰 모델 같은 경우는 그림과 같이 하나의 블록 안을 여러 개의 블록으로 늘리거나 Feature Dimension의 크기를 키워서 큰 모델을 얻습니다. SpineNet-96은 블록 안에 2개의 블록 SpineNet-143은 3개의 블록과 같은 방법으로 더 큰 SpineNet을 얻습니다.
+512x512 resolution으로 5epoch를 Train하고 Validation AP를 Reward로 하여 학습을 진행하고, 이렇게 하여 찾은 모델이 SpineNet-49이고 더 큰 모델 같은 경우는 그림과 같이 하나의 블록 안을 여러 개의 블록으로 늘리거나 Feature Dimension의 크기를 키워서 큰 모델을 얻습니다. SpineNet-96은 블록 안에 2개의 블록 SpineNet-143은 3개의 블록과 같은 방법으로 더 큰 SpineNet을 얻습니다.
 
 <br><br>
 
