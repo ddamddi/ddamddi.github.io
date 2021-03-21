@@ -67,7 +67,7 @@ public class Tea {
 ```
 이때 *boilWater()* 와 *pourInCup()* 메소드는 커피 클래스와 홍차 클래스에서 완전히 중복된다. 따라서 중복되는 부분을 다음과 같이 추상화 시킬 수 있다.
 
-![/assets/img/tmp_uml.jpg](/assets/img/tmp_uml.jpg)
+![/assets/img/tmp_uml.jpg](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/tmp_uml.jpg)
 
 - *CaffeineBeverage*라는 수퍼클래스를 만들어 중복되는 *boilWater()* 와  *pourInCup()* 메소드를 정의했습니다.
 - *prepareRecipe()* 메소드는 서브클래스마다 다르기 때문에 *Abstract Method*로 선언하여 서브클래스에서 오버라이드하여 구현할 수 있도록 합니다. 
@@ -82,7 +82,7 @@ public class Tea {
  (4) 각 음료에 맞는 첨가물을 추가한다.
  ```
 
-![/assets/img/tmp_cmp.jpg](/assets/img/tmp_cmp.jpg)
+![/assets/img/tmp_cmp.jpg](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/tmp_cmp.jpg)
 
 새로운 *prepareRecipe()* 메소드를 *CaffeineBeverage* 수퍼클래스에 정의해보면 다음과 같습니다.
 ```java
@@ -127,7 +127,7 @@ public class Tea extends CaffeineBeverage{
 }
 ```
 
-![/assets/img/tmp_uml2.jpg](/assets/img/tmp_uml2.jpg)
+![/assets/img/tmp_uml2.jpg](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/tmp_uml2.jpg)
 
 수퍼클래스 *CaffeineBeverage*의 *prepareRecipe()*를 *템플릿 메소드 (Template Method)* 라고 한다.
 - 어떤 알고리즘에 대한 템플릿(틀) 역할을 한다. 위와 같은 경우에는 카페인이 든 음료를 만들기 위한 템플릿이다.
@@ -136,7 +136,7 @@ public class Tea extends CaffeineBeverage{
 
 *템플릿 메소드 (Template Method)* 에서는 알고리즘의 각 단계(step)들을 정의하며, 그 중 한 개 이상의 단계가 서브클래스에 의해 구현되어 제공된다.
 
-![/assets/img/tmp_uml3.jpg](/assets/img/tmp_uml3.jpg)
+![/assets/img/tmp_uml3.jpg](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/tmp_uml3.jpg)
 
 ### *Hook*
 - *Hook*는 추상 클래스에서 선언되는 메소드이지만, 비어있거나 기본적인 부분만 구현된 메소드이다.
