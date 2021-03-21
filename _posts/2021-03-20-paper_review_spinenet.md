@@ -112,4 +112,5 @@ ImageNet과 iNaturalist라는 Classification Task에 대한 실험 결과입니�
 [Feature Pyramid Network for Object Detection](https://arxiv.org/abs/1612.03144)  
 [Faster R-CNN](https://arxiv.org/abs/1506.01497)  
 [Mask R-CNN](https://arxiv.org/abs/1703.06870)  
-[*SpineNet*: Learning Scale-Permuted Backbone for Recognition and Localization](https://arxiv.org/abs/1912.05027)  
+[SpineNet: Learning Scale-Permuted Backbone for Recognition and Localization](https://arxiv.org/abs/1912.05027)  
+  
