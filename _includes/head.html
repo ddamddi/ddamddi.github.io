@@ -93,6 +93,12 @@
 <!-- =============== -->
 <!-- SCRIPTS         -->
 <!-- =============== -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
 <script>
   {% include scripts/load-js-deferred.min.js %}
   {% include scripts/loadCSS.min.js %}
@@ -116,7 +122,7 @@
 <!-- =============== -->
 <!-- STYLES          -->
 <!-- =============== -->
-<!--[if gt IE 8]><!---->
+<!--[if gt IE 8]> -->
 <style>
   {% capture include_to_scssify %}
   {% include styles/inline.scss %}

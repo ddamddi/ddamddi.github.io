@@ -5,7 +5,6 @@ description: ""
 modified: 2021-03-20
 categories: mldl
 tags: paper_review
-use_math: true
 comments: true
 ---
 
@@ -37,10 +36,14 @@ Object Detection/Instance Segmentaiton와 같은 Computer Vision Task에서 Back
 
 논문에서 제안하는 Backbone은 고정된 Stem network와 NAS를 통해 학습되는 Scale-Permuted network로 구성됩니다.
 
-[FPN](https://arxiv.org/abs/1612.03144)처럼 여러 스케일의 Mulit-Scale Fetarures를 Output으로 받기 위해 5개의 Output block을 미리 지정합니다. 5개의 Output Scale(L_3, L_4, L_5, L_6, L_7)을 미리 정하고 그 블록들은 Backbone의 head 부분에 위치합니다.(위 그림에서 빨간 테두리의 block)  
-(L_n = 1/2^n * *input resolution*)
+[FPN](https://arxiv.org/abs/1612.03144)처럼 여러 스케일의 Mulit-Scale Fetarures를 Output으로 받기 위해 5개의 Output block을 미리 지정합니다. 5개의 Output Scale($L_3$, $L_4$, $L_5$, $L_6$, $L_7$)을 미리 정하고 그 블록들은 Backbone의 head 부분에 위치합니다.(위 그림에서 빨간 테두리의 block)  
 
-ResNet50은 L_6과 L_7 Scale Block이 없기 때문에 하나의 L_5 블록을 L_6과 L_7 블록 각각 한 개로 바꿔줍니다.
+$$
+L_n : \frac{1}{2^n} * input resolution
+$$  
+  
+  
+ResNet50은 $L_6$과 $L_7$ Scale Block이 없기 때문에 하나의 $L_5$ 블록을 $L_6$과 $L_7$ 블록 각각 한 개로 바꿔줍니다.
 
 1-stage Dectector 중 Backbone으로 ResNet50을 사용하는 *RetinaNet(a)*을 Baseline으로 하고 강화학습기반 NAS(Neural Architecture Search)로 (1)Scale Permutation, (2)Cross-Scale Connections을 찾고 추가적인 (3) Block Adjustment를 통해 Scale-Permuted Model인 *SpineNet*을 찾습니다.  
 
@@ -49,13 +52,13 @@ ResNet50은 L_6과 L_7 Scale Block이 없기 때문에 하나의 L_5 블록을 L
 Search Space는 아래와 같은 3가지로 구성됩니다.
 
 1. **Scale Permutations**  
-앞의 Block으로부터만 연결될 수 있으므로 어떻게 Scale Permutation이 되는지는 중요합니다. 고정된 5개의 Output Block은 Head에 위치되어야 하기 때문에 5!의 Search Space Size와 나머지 블록들의 Permutation인 (N-5)!의 Search Space Size로 총 5!(N-5)!의 Search Space를 가지게 됩니다.
+앞의 Block으로부터만 연결될 수 있으므로 어떻게 Scale Permutation이 되는지는 중요합니다. 고정된 5개의 Output Block은 Head에 위치되어야 하기 때문에 5!의 Search Space Size와 나머지 블록들의 Permutation인 $(N-5)!$의 Search Space Size로 총 $5!(N-5)!$의 Search Space를 가지게 됩니다.
 
 2. **Cross-Scale Connections**  
-앞 쪽의 2개의 블록으로부터 Input을 받고, 다른 Scale의 Feature를 받을 수 있으므로 Resampling과정을 거치게 됩니다. Resampling 과정은 아래 Resampling in Cross-Scale Connection에서 자세히 설명합니다. 여기서의 Search Space Size는 $${\PHI}$$_(i=m)^(N+m-1)C_2^i가 됩니다.
+앞 쪽의 2개의 블록으로부터 Input을 받고, 다른 Scale의 Feature를 받을 수 있으므로 Resampling과정을 거치게 됩니다. Resampling 과정은 아래 Resampling in Cross-Scale Connection에서 자세히 설명합니다. 여기서의 Search Space Size는 $\Pi_{n=i}^{N+m-1}C_2^i$가 됩니다.
 
 3. **Block Adjustments**  
-Output Block을 제외한 Intermediate Block은 Scale level을 변경할 수 있고 Output Block을 포함한 모든 Block은 Block Type을 변경할 수 있습니다. Scale Level은 {-1, 0, 1, 2}로 줄이거나 유지하거나 늘리는 방법으로 변경 가능하고 Block Type은 {*Bottleneck, Residual*}로 변경 가능합니다. Search Space Size는 4^(N-5)2^N가 됩니다.
+Output Block을 제외한 Intermediate Block은 Scale level을 변경할 수 있고 Output Block을 포함한 모든 Block은 Block Type을 변경할 수 있습니다. Scale Level은 {-1, 0, 1, 2}로 줄이거나 유지하거나 늘리는 방법으로 변경 가능하고 Block Type은 {*Bottleneck, Residual*}로 변경 가능합니다. Search Space Size는 $4^(N-5)2^N$가 됩니다.
 
 ## Resampling in Cross-Scale Connection
 ![spinenet-resampling-ops](/assets/img/paper_review/spinenet-resampling-ops.png)  
@@ -113,4 +116,4 @@ ImageNet과 iNaturalist라는 Classification Task에 대한 실험 결과입니�
 [Faster R-CNN](https://arxiv.org/abs/1506.01497)  
 [Mask R-CNN](https://arxiv.org/abs/1703.06870)  
 [SpineNet: Learning Scale-Permuted Backbone for Recognition and Localization](https://arxiv.org/abs/1912.05027)  
-  
+ 
