@@ -2,7 +2,7 @@
 layout: tag-blog
 title: PyTorch
 slug: pytorch
-category: dlml
+category: mldl
 menu: false
 order: 2
 ---
