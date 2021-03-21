@@ -156,7 +156,7 @@ comments: true
         - pthread_t : type that represents a thread ID
         - pthread_self(): function that returns thread ID
 
-    ![/assets/img/linux/summary7/Untitled%2015.png](/https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/ssets/img/linux/summary7/Untitled%2015.png)
+    ![/assets/img/linux/summary7/Untitled%2015.png](/https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/linux/summary7/Untitled%2015.png)
 
     ![/assets/img/linux/summary7/Untitled%2016.png](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/linux/summary7/Untitled%2016.png)
 
