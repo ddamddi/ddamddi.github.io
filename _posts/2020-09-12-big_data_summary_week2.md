@@ -27,7 +27,7 @@ comments: true
 <br><br>
 
 # Characteristic of Big Data(3V)
-![/assets/img/3v_bd.PNG](/assets/img/3v_bd.PNG)  
+![/assets/img/3v_bd.PNG](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/3v_bd.PNG)  
 
 - *Volume* (크기)
   - Very Large Data
@@ -45,4 +45,4 @@ comments: true
 <br><br>
 
 # Data Platform
-![/assets/img/data_platform.PNG](/assets/img/data_platform.PNG)  
+![/assets/img/data_platform.PNG](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/data_platform.PNG)  
