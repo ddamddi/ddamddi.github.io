@@ -51,7 +51,7 @@ IoU는 Intersaction over Union의 약자로, 그 의미 그대로 합친 영역�
 <br>
 
 ## Mean IoU
-Semantic Segmentation에서 가장 흔히 사용되는 성능지표입니다. mIoU(Mean IoU)는 각 클래스별 IoU의 Mean값으로 정의됩니다. 각 클래스별로 IoU를 계산하고 평균으로 나타냅니다. 아래 식에서 $$C$$는 전체 클래스 개수이며, background를 포함하여 총 클래스 개수는 $$C+1$$이 됩니다.   
+Semantic Segmentation에서 가장 흔히 사용되는 성능지표입니다. mIoU(Mean IoU)는 각 클래스별로 IoU를 계산하고 이들의 Mean으로 나타냅니다. 아래 식에서 $$C$$는 전체 클래스 개수이며, background를 포함하여 총 클래스 개수는 $$C+1$$이 됩니다.   
 
 $$ mIoU = \frac{1}{C+1}\sum_{c=0}^{C} IoU_c $$  
 
