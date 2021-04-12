@@ -44,14 +44,14 @@ $$Pixel Acc = \frac{TP+TN}{TP+TN+FP+FN}$$
 <br>
 
 ## IoU (Intersaction over Union)
-IoU는 Intersaction over Union의 약자로, 그 의미 그대로 합친 영역의 넓이(Union) 분의 겹치는 영역의 넓이(Intersaction) 비율을 의미합니다. [Jaccard Index](https://ko.wikipedia.org/wiki/%EC%9E%90%EC%B9%B4%EB%93%9C_%EC%A7%80%EC%88%98)로 표현하기도 합니다. 구현은 Mean IoU 파트에서 확인 가능합니다.   
+IoU는 Intersaction over Union의 약자로, 그 의미 그대로 합친 영역의 넓이(Union) 분의 겹치는 영역의 넓이(Intersaction) 비율을 의미합니다. [Jaccard Index](https://ko.wikipedia.org/wiki/%EC%9E%90%EC%B9%B4%EB%93%9C_%EC%A7%80%EC%88%98)로 표현하기도 합니다. 코드 구현은 Mean IoU 파트에서 확인 가능합니다.   
 
 ![iou](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/iou.png){: width="60%" height="60%"}  
 
 <br>
 
 ## Mean IoU
-mIoU(Mean IoU)는 각 클래스별 IoU의 Mean값으로 정의됩니다. 각 클래스별로 IoU를 계산하고 평균으로 나타냅니다. 아래 식에서 $$C$$는 전체 클래스 개수이며, background를 포함하여 총 클래스 개수는 $$C+1$$이 됩니다.   
+Semantic Segmentation에서 가장 흔히 사용되는 성능지표입니다. mIoU(Mean IoU)는 각 클래스별 IoU의 Mean값으로 정의됩니다. 각 클래스별로 IoU를 계산하고 평균으로 나타냅니다. 아래 식에서 $$C$$는 전체 클래스 개수이며, background를 포함하여 총 클래스 개수는 $$C+1$$이 됩니다.   
 
 $$ mIoU = \frac{1}{C+1}\sum_{c=0}^{C} IoU_c $$  
 
@@ -64,7 +64,7 @@ $$ mIoU = \frac{1}{C+1}\sum_{c=0}^{C} IoU_c $$
 <br>
 
 ## Dice Coefficient
-주로 Medical image Analysis에서 사용되는 metric으로 IoU와 유사합니다. 차이점으로는 교집합(Intersaction)이자 TP(True-Positivie)인 영역을 2배하여 계산합니다.  
+주로 Medical image Analysis에서 사용되는 metric으로 IoU와 유사합니다. 차이점으로는 교집합(Intersaction)이자 TP(True-Positive)인 영역을 2배하여 계산합니다.  
 
 $$ Dice = \frac{2TP}{2TP+FP+FN} = \frac{2 \times {A}\cap{B}}{A+B}$$
 
