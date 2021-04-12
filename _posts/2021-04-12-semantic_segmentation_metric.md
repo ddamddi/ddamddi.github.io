@@ -16,6 +16,8 @@ comments: true
 ![computer_vision_task](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/paper_review/computer_vision_task.png)  
 오늘은 Computer Vision Task 중에서 **[Semantic Segmentation]()** Task의 성능지표에 대해 정리해봅시다. Segmentation Task는 **Semantic Segmentation**과 **Instance Segmentation**으로 나눌 수 있습니다. 최근에는 이 두 Task를 합친 **Panoptic Segmentation**라는 Task도 있습니다. **Instance Segmentation**과 **Panoptic Segmentation**은 다른 포스트에서 정리하도록 하겠습니다.  
 
+<br>
+
 ![segmentation_task](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/segmentation_task.png)  
 **[Semantic Segmentation]()**은 Pixel-wise Classification으로 이미지에서 각 픽셀이 어느 클래스에 해당되는지 분류한 것입니다. 위의 그림과 같이 다른 Object라도 픽셀 단위에서 클래스를 구분하기 때문에 Object간의 구분은 하지 못합니다.  
 
