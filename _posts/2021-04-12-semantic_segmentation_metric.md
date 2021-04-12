@@ -59,7 +59,7 @@ $$ mIoU = \frac{1}{C+1}\sum_{c=0}^{C} IoU_c $$
 
 파란색 Box부분이 각 클래스별 IoU를 구하는 부분이며 구한 값들의 mean값으로 mIoU를 구할 수 있습니다.
 
-![miou](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/miou.png)
+![miou](https://cdn.jsdelivr.net/gh/ddamddi/ddamddi.github.io/assets/img/miou_fixed.png)
 
 <br>
 
