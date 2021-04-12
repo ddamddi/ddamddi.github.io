@@ -64,9 +64,28 @@ $$ mIoU = \frac{1}{C+1}\sum_{c=0}^{C} IoU_c $$
 <br>
 
 ## Dice Coefficient
-[Dice Coefficient](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)는 Sørensen–Dice coefficient 또는 F1-Score로도 알려져있으며, 주로 Medical image Analysis에서 사용되는 metric입니다. F1-Score를 통분하여 정리하면 Dice Coefficient 식처럼 정리가 됩니다. 
+[Dice Coefficient](https://en.wikipedia.org/wiki/S%C3%B8rensen%E2%80%93Dice_coefficient)는 Sørensen–Dice coefficient 또는 F1-Score로도 알려져있으며, 주로 Medical image Analysis에서 사용되는 metric입니다.  
 
 $$ Dice = \frac{2TP}{2TP+FP+FN} = \frac{2 \times {A}\cap{B}}{A+B}$$
+
+<br>
+
+Precision과 Recall의 조화평균인 F1-Score를 통분하여 정리하면 위의 Dice Coefficient 식처럼 정리가 됩니다.
+
+$$ precision = \frac{TP}{TP+FP} $$ 
+
+$$ recall = \frac{TP}{TP+FN} $$
+
+<br>
+
+$$ f1\mbox{-}score = \frac{2 \times precision \times recall}{precision + recall} $$
+
+$$ = \frac{2 \times \frac{TP}{TP+FP} \frac{TP}{TP+FN}}{\frac{TP}{TP+FP} + \frac{TP}{TP+FN}} $$
+
+$$ = \frac{\frac{2 \times TP^2}{(TP+FP)(TP+FN)}}{\frac{TP(TP+FP+TP+FN)}{(TP+FP)(TP+FN)}} $$
+
+$$ = \frac{2 \times TP}{2TP+FP+FN} $$
+
 
 <br><br>
 
