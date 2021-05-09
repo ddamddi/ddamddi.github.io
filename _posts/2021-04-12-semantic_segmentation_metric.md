@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Semantic Segmentation 평가 Metric 알아보기"
+title: "Semantic Segmentation Metric 알아보기"
 description: ""
 modified: 2021-04-12
 categories: mldl
