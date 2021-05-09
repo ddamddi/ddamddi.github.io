@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Object Detection & Instance Segmentation 평가 Metric 알아보기"
+title: "Object Detection & Instance Segmentation Metric 알아보기"
 description: ""
 modified: 2021-05-09
 categories: mldl
